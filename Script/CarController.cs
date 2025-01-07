@@ -1,8 +1,7 @@
 using UnityEngine;
-using system.Collections;
-using System.Collections.Generic;
 
-public class CarController
+[CreateAssetMenu(fileName = "CarController", menuName = "Scriptable Objects/CarController")]
+public class CarController : ScriptableObject
 {
-
+    
 }
