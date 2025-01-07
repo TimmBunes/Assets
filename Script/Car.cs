@@ -10,16 +10,51 @@ public class Car : MonoBehaviour
     [Header("Wheels Transform")]
     public Transform frontRightWheelTransform;
     public Transform frontLeftWheelTransform;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Transform rearRightWheelTransform;
+    public Transform rearLeftWheelTransform;
+
+    [Header("Car Engine")]
+    public float acceleration = 50000f; // Increased from 5000f
+    public float breakForce = 3000f;
+    public float presentbreakForce = 0f;
+    public float presentAcceleration = 0f;
+
+    private Rigidbody rb;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        rb.mass = 500f; // Reduced mass
+        rb.linearDamping = 0.1f; // Reduce drag to minimize resistance
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        MoveCar();
+    }
+
+    private void MoveCar()
+    {
+        float verticalInput = Input.GetAxis("Vertical");
+        presentAcceleration = acceleration * verticalInput;
+
+        if (verticalInput == 0)
+        {
+            presentbreakForce = breakForce;
+        }
+        else
+        {
+            presentbreakForce = 0f;
+        }
+
+        frontLeftWheelCollider.motorTorque = presentAcceleration;
+        frontRightWheelCollider.motorTorque = presentAcceleration;
+        rearLeftWheelCollider.motorTorque = presentAcceleration;    
+        rearRightWheelCollider.motorTorque = presentAcceleration;
+
+        frontLeftWheelCollider.brakeTorque = presentbreakForce;
+        frontRightWheelCollider.brakeTorque = presentbreakForce;
+        rearLeftWheelCollider.brakeTorque = presentbreakForce;
+        rearRightWheelCollider.brakeTorque = presentbreakForce;
     }
 }
