@@ -1,23 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
+    public Button startButton;
+    public Button freeplayButton;
+    public Button settingsButton;
+    public Button exitButton;
 
     // Start is called before the first frame update
     void Start()
     {
         ShowMainMenu();
+        SetButtonColors(startButton);
+        SetButtonColors(freeplayButton);
+        SetButtonColors(settingsButton);
+        SetButtonColors(exitButton);
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetButtonColors(Button button)
     {
-        
+        ColorBlock cb = button.colors;
+        cb.normalColor = Color.white;
+        cb.highlightedColor = Color.gray;
+        cb.pressedColor = Color.green;
+        cb.selectedColor = Color.blue;
+        button.colors = cb;
     }
 
     public void OnStartButtonPressed()
