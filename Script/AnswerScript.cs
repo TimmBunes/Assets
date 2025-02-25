@@ -6,15 +6,19 @@ public class AnswerScript : MonoBehaviour
 {
 
     public bool isCorrect = false;
+
+    public QuizScript quizScript;
     public void Answers()
     {
         if(isCorrect)
         {
             Debug.Log("Correct Answer");
+            quizScript.correct();
         }
         else
         {
             Debug.Log("Wrong Answer");
+            quizScript.correct();
         }
     }
 }

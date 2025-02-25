@@ -15,6 +15,11 @@ public class QuizScript : MonoBehaviour
     {
         genereateQuestion();
     }
+    public void correct()
+    {
+        QnA.RemoveAt(currentQuestion);
+        genereateQuestion();
+    }
 
     void SetAnswer()
     {
