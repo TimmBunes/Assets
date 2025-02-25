@@ -20,7 +20,13 @@ public class QuizScript : MonoBehaviour
     {
         for (int i = 0; i < options.Length; i++)
         {
+            options[i].GetComponent<AnswerScript>().isCorrect = false;
             options[i].trasform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
+
+            if (QnA[currentQuestion].CorrectAnswer == i + 1)
+            {
+                options[i].GetComponent<AnswerScript>().isCorrect = true;
+            }
         }
     }
     void genereateQuestion()
@@ -29,5 +35,6 @@ public class QuizScript : MonoBehaviour
         QuestionTxt.text = QnA[currentQuestion].Questions;
 
         SetAnswer();
+        QnA.RemoveAt(currentQuestion);
     }
 }
