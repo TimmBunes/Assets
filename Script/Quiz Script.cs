@@ -5,5 +5,29 @@ using UnityEngine;
 public class QuizScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    public List<QandA> QnA;
+    public GameObject[] options;
+    public int currentQuestion;
+
+    public Text QuestionTxt;
+
+    public void Start()
+    {
+        genereateQuestion();
+    }
+
+    void SetAnswer()
+    {
+        for (int i = 0; i < options.Length; i++)
+        {
+            options[i].trasform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
+        }
+    }
+    void genereateQuestion()
+    {
+        currentQuestion = Random.Range(0, QnA.Count);
+        QuestionTxt.text = QnA[currentQuestion].Questions;
+
+        SetAnswer();
+    }
 }
