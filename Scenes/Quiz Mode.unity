@@ -609,6 +609,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524107865}
   m_CullTransparentMesh: 1
+--- !u!1 &596047699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596047701}
+  - component: {fileID: 596047700}
+  m_Layer: 0
+  m_Name: Quiz Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &596047700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596047699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545a4d70007e6b8499408d80a5f0dbf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QnA:
+  - Questions: 'What road sign is this '
+    Answers:
+    - No entry
+    - Yield
+    - One-way street
+    - Stop and proceed
+    CorrectAnswer: 1
+    QuestionImage: {fileID: 21300000, guid: 365243db13bab9d4cb0b4b24b6c0d6b0, type: 3}
+  options:
+  - {fileID: 1902487976}
+  - {fileID: 1134498825}
+  - {fileID: 891047598}
+  - {fileID: 851697471}
+  currentQuestion: 0
+  QuestionTxt: {fileID: 2145027766}
+  QuestionImage: {fileID: 1155464572}
+--- !u!4 &596047701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596047699}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1477.6594, y: 662.0909, z: -107.022514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &651950819
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +816,7 @@ GameObject:
   - component: {fileID: 851697475}
   - component: {fileID: 851697474}
   - component: {fileID: 851697473}
+  - component: {fileID: 851697476}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -864,6 +926,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851697471}
   m_CullTransparentMesh: 1
+--- !u!114 &851697476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851697471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4c7bfaa9e386e4299b80816eb2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizScript: {fileID: 596047700}
 --- !u!1 &889194570
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +1044,7 @@ GameObject:
   - component: {fileID: 891047602}
   - component: {fileID: 891047601}
   - component: {fileID: 891047600}
+  - component: {fileID: 891047603}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -1077,6 +1154,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891047598}
   m_CullTransparentMesh: 1
+--- !u!114 &891047603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891047598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4c7bfaa9e386e4299b80816eb2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizScript: {fileID: 596047700}
 --- !u!1 &952323201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1248,7 @@ GameObject:
   - component: {fileID: 1134498829}
   - component: {fileID: 1134498828}
   - component: {fileID: 1134498827}
+  - component: {fileID: 1134498830}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1266,6 +1358,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134498825}
   m_CullTransparentMesh: 1
+--- !u!114 &1134498830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134498825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4c7bfaa9e386e4299b80816eb2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizScript: {fileID: 596047700}
 --- !u!1 &1155464570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,8 +1429,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1621,6 +1727,7 @@ GameObject:
   - component: {fileID: 1902487980}
   - component: {fileID: 1902487979}
   - component: {fileID: 1902487978}
+  - component: {fileID: 1902487981}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1730,6 +1837,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902487976}
   m_CullTransparentMesh: 1
+--- !u!114 &1902487981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902487976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4c7bfaa9e386e4299b80816eb2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizScript: {fileID: 596047700}
 --- !u!1 &2145027764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1863,7 @@ GameObject:
   - component: {fileID: 2145027767}
   - component: {fileID: 2145027766}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: questions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1757,14 +1878,14 @@ RectTransform:
   m_GameObject: {fileID: 2145027764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3182, y: 1.3182, z: 1.3182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 273033891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -239, y: 78}
+  m_AnchoredPosition: {x: -175, y: 7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145027766
@@ -1787,7 +1908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: what road sign is this
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1814,7 +1935,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 22.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1871,4 +1992,5 @@ SceneRoots:
   - {fileID: 889194573}
   - {fileID: 206837833}
   - {fileID: 282326275}
+  - {fileID: 596047701}
   - {fileID: 952323204}

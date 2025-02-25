@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // Add this directive for TextMeshPro
+using UnityEngine.UI; // Add this directive for UI components
 
 public class QuizScript : MonoBehaviour
 {
@@ -9,7 +11,8 @@ public class QuizScript : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion;
 
-    public Text QuestionTxt;
+    public TMP_Text QuestionTxt; // Change Text to TMP_Text
+    public Image QuestionImage; // Add this field for the question image
 
     public void Start()
     {
@@ -26,7 +29,7 @@ public class QuizScript : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].trasform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
+            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i]; // Change Text to TMP_Text
 
             if (QnA[currentQuestion].CorrectAnswer == i + 1)
             {
@@ -38,6 +41,7 @@ public class QuizScript : MonoBehaviour
     {
         currentQuestion = Random.Range(0, QnA.Count);
         QuestionTxt.text = QnA[currentQuestion].Questions;
+        QuestionImage.sprite = QnA[currentQuestion].QuestionImage; // Set the question image
 
         SetAnswer();
         QnA.RemoveAt(currentQuestion);
