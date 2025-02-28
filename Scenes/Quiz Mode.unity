@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Questions: 'What road sign is this '
+  - Questions: What does this road sign mean
     Answers:
     - No entry
     - Yield
@@ -647,6 +647,62 @@ MonoBehaviour:
     - Stop and proceed
     CorrectAnswer: 1
     QuestionImage: {fileID: 21300000, guid: 365243db13bab9d4cb0b4b24b6c0d6b0, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - No crossing allowed
+    - Pedestrian crossing ahead
+    - School zone only
+    - Slippery road ahead
+    CorrectAnswer: 2
+    QuestionImage: {fileID: 21300000, guid: f33a58d1044cff446a48f2d19000bd0b, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - Stop immediately
+    - No pedestrian crossing
+    - Walking not allowed
+    - Stop and proceed
+    CorrectAnswer: 2
+    QuestionImage: {fileID: 21300000, guid: 4297bde0ce25402429764d8c70f2cee9, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - No Suggested speed 60
+    - Speed limit 60
+    - Minimum speed 60
+    - Maximum weight limit 60
+    CorrectAnswer: 2
+    QuestionImage: {fileID: 21300000, guid: 04123a898e8f0584d8f7b13aad441747, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - Process area
+    - Cycle area
+    - Recycle ahead
+    - Roundabout ahead
+    CorrectAnswer: 4
+    QuestionImage: {fileID: 21300000, guid: cbf2406da5c171749a157a68f4602377, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - Stop light Ahead
+    - Colored lights Ahead
+    - Traffic light Ahead
+    - Traffic Ahead
+    CorrectAnswer: 3
+    QuestionImage: {fileID: 21300000, guid: f109d335687aaae4b992e2e5fb0e29d9, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - Biking area
+    - Bike  Lane Ahead
+    - Bike Only area
+    - Cycling Zone
+    CorrectAnswer: 2
+    QuestionImage: {fileID: 21300000, guid: 9985c941cf0a2aa4f80209eede06732b, type: 3}
+  - Questions: What does this road sign mean
+    Answers:
+    - Intersection Ahead
+    - 'Cross road '
+    - Medical Area
+    - Plus Road Ahead
+    CorrectAnswer: 1
+    QuestionImage: {fileID: 21300000, guid: e0684f9834c900547a8b769f12879c7d, type: 3}
   options:
   - {fileID: 1902487976}
   - {fileID: 1134498825}
