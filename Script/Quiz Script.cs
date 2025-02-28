@@ -14,14 +14,34 @@ public class QuizScript : MonoBehaviour
     public TMP_Text QuestionTxt; // Change Text to TMP_Text
     public Image QuestionImage; // Add this field for the question image
 
+    private List<int> questionIndices; // List to keep track of question indices
+
     public void Start()
     {
+        questionIndices = new List<int>();
+        for (int i = 0; i < QnA.Count; i++)
+        {
+            questionIndices.Add(i);
+        }
         genereateQuestion();
     }
+
     public void correct()
     {
-        QnA.RemoveAt(currentQuestion);
-        genereateQuestion();
+        if (QnA.Count > 0)
+        {
+            QnA.RemoveAt(currentQuestion);
+            questionIndices.RemoveAt(currentQuestion);
+            if (QnA.Count > 0)
+            {
+                genereateQuestion();
+            }
+            else
+            {
+                // Handle the case where there are no more questions left
+                Debug.Log("No more questions available.");
+            }
+        }
     }
 
     void SetAnswer()
@@ -37,13 +57,22 @@ public class QuizScript : MonoBehaviour
             }
         }
     }
+
     void genereateQuestion()
     {
-        currentQuestion = Random.Range(0, QnA.Count);
-        QuestionTxt.text = QnA[currentQuestion].Questions;
-        QuestionImage.sprite = QnA[currentQuestion].QuestionImage; // Set the question image
+        if (QnA.Count > 0)
+        {
+            int randomIndex = Random.Range(0, questionIndices.Count);
+            currentQuestion = questionIndices[randomIndex];
+            QuestionTxt.text = QnA[currentQuestion].Questions;
+            QuestionImage.sprite = QnA[currentQuestion].QuestionImage; // Set the question image
 
-        SetAnswer();
-        QnA.RemoveAt(currentQuestion);
+            SetAnswer();
+        }
+        else
+        {
+            // Handle the case where there are no more questions left
+            Debug.Log("No more questions available.");
+        }
     }
 }
