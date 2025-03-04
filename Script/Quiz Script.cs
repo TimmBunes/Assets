@@ -37,7 +37,6 @@ public class QuizScript : MonoBehaviour
             questionIndices.Add(i);
         }
         genereateQuestion();
-
     }
 
     public void retry()
@@ -54,7 +53,7 @@ public class QuizScript : MonoBehaviour
 
     public void wrong()
     {
-        genereateQuestion();if (QnA.Count > 0)
+        if (QnA.Count > 0)
         {
             score += 0;
             QnA.RemoveAt(currentQuestion);
@@ -67,15 +66,16 @@ public class QuizScript : MonoBehaviour
             {
                 // Handle the case where there are no more questions left
                 Debug.Log("No more questions available.");
+                GameOver();
             }
         }
     }
 
     public void correct()
     {
-        score += 1;
         if (QnA.Count > 0)
         {
+            score += 1;
             QnA.RemoveAt(currentQuestion);
             questionIndices.RemoveAt(currentQuestion);
             if (QnA.Count > 0)
@@ -86,20 +86,24 @@ public class QuizScript : MonoBehaviour
             {
                 // Handle the case where there are no more questions left
                 Debug.Log("No more questions available.");
+                GameOver();
             }
         }
     }
 
     void SetAnswer()
     {
-        for (int i = 0; i < options.Length; i++)
+        if (currentQuestion < QnA.Count)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i]; // Change Text to TMP_Text
-
-            if (QnA[currentQuestion].CorrectAnswer == i + 1)
+            for (int i = 0; i < options.Length; i++)
             {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
+                options[i].GetComponent<AnswerScript>().isCorrect = false;
+                options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i]; // Change Text to TMP_Text
+
+                if (QnA[currentQuestion].CorrectAnswer == i + 1)
+                {
+                    options[i].GetComponent<AnswerScript>().isCorrect = true;
+                }
             }
         }
     }
@@ -108,8 +112,7 @@ public class QuizScript : MonoBehaviour
     {
         if (QnA.Count > 0)
         {
-            int randomIndex = Random.Range(0, questionIndices.Count);
-            currentQuestion = questionIndices[randomIndex];
+            currentQuestion = 0; // Always take the first question in the list
             QuestionTxt.text = QnA[currentQuestion].Questions;
             QuestionImage.sprite = QnA[currentQuestion].QuestionImage; // Set the question image
 
