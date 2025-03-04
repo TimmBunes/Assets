@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Add this directive for TextMeshPro
 using UnityEngine.UI; // Add this directive for UI components
+using UnityEngine.SceneManagement; // Add this directive for SceneManagement
 
 public class QuizScript : MonoBehaviour
 {
@@ -16,18 +17,63 @@ public class QuizScript : MonoBehaviour
 
     private List<int> questionIndices; // List to keep track of question indices
 
+    public GameObject Quizpanel;
+    public GameObject GoPanel;
+    
+    public TMP_Text scoreTxt; // Change Text to TMP_Text
+
+    int totalQuestions = 0;
+
+    public int score;
+
     public void Start()
     {
+        totalQuestions = QnA.Count;
+        GoPanel.SetActive(false);
+
         questionIndices = new List<int>();
         for (int i = 0; i < QnA.Count; i++)
         {
             questionIndices.Add(i);
         }
         genereateQuestion();
+
+    }
+
+    public void retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GameOver()
+    {
+        Quizpanel.SetActive(false);
+        GoPanel.SetActive(true);
+        scoreTxt.text = score + "/" + totalQuestions;
+    }
+
+    public void wrong()
+    {
+        genereateQuestion();if (QnA.Count > 0)
+        {
+            score += 0;
+            QnA.RemoveAt(currentQuestion);
+            questionIndices.RemoveAt(currentQuestion);
+            if (QnA.Count > 0)
+            {
+                genereateQuestion();
+            }
+            else
+            {
+                // Handle the case where there are no more questions left
+                Debug.Log("No more questions available.");
+            }
+        }
     }
 
     public void correct()
     {
+        score += 1;
         if (QnA.Count > 0)
         {
             QnA.RemoveAt(currentQuestion);
@@ -73,6 +119,7 @@ public class QuizScript : MonoBehaviour
         {
             // Handle the case where there are no more questions left
             Debug.Log("No more questions available.");
+            GameOver();
         }
     }
 }
