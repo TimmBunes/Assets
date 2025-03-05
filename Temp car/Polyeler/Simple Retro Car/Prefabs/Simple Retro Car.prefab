@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 3667211753972221885}
   - component: {fileID: 6052553181676210707}
   - component: {fileID: 2673782622884311542}
-  - component: {fileID: 6205936865556156853}
+  - component: {fileID: 8629911034728070357}
   m_Layer: 0
   m_Name: Simple Retro Car
   m_TagString: Untagged
@@ -605,7 +605,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6205936865556156853
+--- !u!114 &8629911034728070357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,45 +614,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3638911070570068518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0fefceefe666bb4682b272ec8c5bdd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 772b401c849cb9744a836a0feb9f7689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 90
-  maxReverseSpeed: 45
-  accelerationMultiplier: 2
-  maxSteeringAngle: 27
-  steeringSpeed: 0.5
-  brakeForce: 350
-  decelerationMultiplier: 2
-  handbrakeDriftMultiplier: 5
-  bodyMassCenter: {x: 0, y: 0, z: 0}
-  frontLeftMesh: {fileID: 4576468817563483559}
-  frontLeftCollider: {fileID: 7279356106151591477}
-  frontRightMesh: {fileID: 9214569001753961304}
-  frontRightCollider: {fileID: 9031491964007721296}
-  rearLeftMesh: {fileID: 98482164156424475}
-  rearLeftCollider: {fileID: 7821655098869059501}
-  rearRightMesh: {fileID: 2116509147393424203}
-  rearRightCollider: {fileID: 6115708226307837144}
-  useEffects: 0
-  RLWParticleSystem: {fileID: 0}
-  RRWParticleSystem: {fileID: 0}
-  RLWTireSkid: {fileID: 0}
-  RRWTireSkid: {fileID: 0}
-  useUI: 0
-  carSpeedText: {fileID: 0}
-  useSounds: 0
-  carEngineSound: {fileID: 0}
-  tireScreechSound: {fileID: 0}
-  useTouchControls: 0
-  throttleButton: {fileID: 0}
-  reverseButton: {fileID: 0}
-  turnRightButton: {fileID: 0}
-  turnLeftButton: {fileID: 0}
-  handbrakeButton: {fileID: 0}
-  carSpeed: 0
-  isDrifting: 0
-  isTractionLocked: 0
+  WheelFL: {fileID: 7279356106151591477}
+  WheelFR: {fileID: 9031491964007721296}
+  WheelRL: {fileID: 7821655098869059501}
+  WheelRR: {fileID: 6115708226307837144}
+  WheelFLTrans: {fileID: 4656789524055844519}
+  WheelFRTrans: {fileID: 7783998986536950344}
+  WheelRLTrans: {fileID: 7833293775386317676}
+  WheelRRTrans: {fileID: 286543582901452437}
+  acceleration: 1000
+  breakForce: 30000
+  presentBreakForce: 0
+  presentAcceleration: 0
 --- !u!1 &4576468817563483559
 GameObject:
   m_ObjectHideFlags: 0
