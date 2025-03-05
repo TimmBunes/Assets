@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class MainMenu : MonoBehaviour
     public Button freeplayButton;
     public Button settingsButton;
     public Button exitButton;
+    public Button quizModeButton; // Add a button for quiz mode
+
+    // Add public fields for the scene names
+    public string freeplaySceneName;
+    public string quizModeSceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +25,7 @@ public class MainMenu : MonoBehaviour
         SetButtonColors(freeplayButton);
         SetButtonColors(settingsButton);
         SetButtonColors(exitButton);
+        SetButtonColors(quizModeButton); // Set colors for the quiz mode button
     }
 
     void SetButtonColors(Button button)
@@ -39,7 +46,14 @@ public class MainMenu : MonoBehaviour
 
     public void OnFreeplayButtonPressed()
     {
-        // Implement Freeplay button functionality here
+        // Load the Freeplay scene
+        SceneManager.LoadScene(freeplaySceneName);
+    }
+
+    public void OnQuizModeButtonPressed()
+    {
+        // Load the Quiz Mode scene
+        SceneManager.LoadScene(quizModeSceneName);
     }
 
     public void OnSettingsButtonPressed()
