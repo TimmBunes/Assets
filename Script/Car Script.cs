@@ -22,23 +22,66 @@ public class CarScript : MonoBehaviour
     public float presentBreakForce = 0f;
     public float presentAcceleration = 0f;
 
+    [Header("Car Steering")]
+    public float wheelsTorque = 35f;
+    private float presentTurnAngle = 0f;
+
+
+
     private void Update()
     {
         MoveCar();
+        CarSteering();
+        BreakCar();
     }
 
     private void MoveCar()
     {
-        presentAcceleration = acceleration * Input.GetAxis("Vertical");
 
         WheelFL.motorTorque = presentAcceleration;
         WheelFR.motorTorque = presentAcceleration;
         WheelRL.motorTorque = presentAcceleration;
         WheelRR.motorTorque = presentAcceleration;
 
-        WheelFLTrans.Rotate(WheelFL.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        WheelFRTrans.Rotate(WheelFR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        WheelRLTrans.Rotate(WheelRL.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-        WheelRRTrans.Rotate(WheelRR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        presentAcceleration = acceleration * Input.GetAxis("Vertical");
+
+    }
+
+    public void CarSteering()
+    {
+        presentTurnAngle = wheelsTorque * Input.GetAxis("Horizontal");
+        WheelFL.steerAngle = presentTurnAngle;
+        WheelFR.steerAngle = presentTurnAngle;
+
+        SteeringWheel(WheelFL, WheelFLTrans);
+        SteeringWheel(WheelFR, WheelFRTrans);
+        SteeringWheel(WheelRL, WheelRLTrans);
+        SteeringWheel(WheelRR, WheelRRTrans);
+    }
+
+    void SteeringWheel(WheelCollider WC, Transform WT)
+    {
+        Vector3 pos;    
+        Quaternion rot;
+
+        WC.GetWorldPose(out pos, out rot);
+        WT.position = pos;
+        WT.rotation = rot;
+    }
+
+    public void BreakCar()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            presentBreakForce = breakForce;
+        }
+        else
+        {
+            presentBreakForce = 0f;
+        }
+        WheelFL.brakeTorque = presentBreakForce;
+        WheelFR.brakeTorque = presentBreakForce;
+        WheelRL.brakeTorque = presentBreakForce;
+        WheelRR.brakeTorque = presentBreakForce;
     }
 }

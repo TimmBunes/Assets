@@ -251,12 +251,12 @@ WheelCollider:
   m_GameObject: {fileID: 1335181432908906285}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.3
+  m_Radius: 0.28
   m_SuspensionSpring:
     spring: 100000
     damper: 2000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.1
+  m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -322,12 +322,12 @@ WheelCollider:
   m_GameObject: {fileID: 1688328006797383967}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.3
+  m_Radius: 0.28
   m_SuspensionSpring:
     spring: 100000
     damper: 2000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.1
+  m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -576,8 +576,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7435074, y: 0.65, z: 4.4128776}
-  m_Center: {x: -0.033844262, y: 1, z: 0.07252383}
+  m_Size: {x: 1.7435074, y: 0.95, z: 4.4128776}
+  m_Center: {x: -0.033844262, y: 0.79, z: 0.07252383}
 --- !u!54 &2673782622884311542
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -629,6 +629,7 @@ MonoBehaviour:
   breakForce: 30000
   presentBreakForce: 0
   presentAcceleration: 0
+  wheelsTorque: 35
 --- !u!1 &4576468817563483559
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,12 +754,12 @@ WheelCollider:
   m_GameObject: {fileID: 5949256809883555182}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.3
+  m_Radius: 0.28
   m_SuspensionSpring:
     spring: 100000
     damper: 2000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.1
+  m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -857,12 +858,12 @@ WheelCollider:
   m_GameObject: {fileID: 6698251449506977104}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.3
+  m_Radius: 0.28
   m_SuspensionSpring:
     spring: 100000
     damper: 2000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.1
+  m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
