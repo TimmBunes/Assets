@@ -43,13 +43,13 @@ public class CarScript : MonoBehaviour
         WheelRL.motorTorque = presentAcceleration;
         WheelRR.motorTorque = presentAcceleration;
 
-        presentAcceleration = acceleration * Input.GetAxis("Vertical");
+        presentAcceleration = acceleration * SimpleInput.GetAxis("Vertical");
 
     }
 
     public void CarSteering()
     {
-        presentTurnAngle = wheelsTorque * Input.GetAxis("Horizontal");
+        presentTurnAngle = wheelsTorque * SimpleInput.GetAxis("Horizontal");
         WheelFL.steerAngle = presentTurnAngle;
         WheelFR.steerAngle = presentTurnAngle;
 
