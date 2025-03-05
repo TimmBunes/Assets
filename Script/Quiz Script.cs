@@ -26,6 +26,9 @@ public class QuizScript : MonoBehaviour
 
     public int score;
 
+    // Add a public field for the main menu scene name
+    public string mainMenuSceneName;
+
     public void Start()
     {
         totalQuestions = QnA.Count;
@@ -124,5 +127,11 @@ public class QuizScript : MonoBehaviour
             Debug.Log("No more questions available.");
             GameOver();
         }
+    }
+
+    // Method to handle the back button press
+    public void OnBackButtonPressed()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
