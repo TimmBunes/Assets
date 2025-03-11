@@ -13,15 +13,21 @@ public class AIController : MonoBehaviour
     public Vector3 destination;
     public bool destinationReached;
 
+
+    public void Update()
+    {
+       Drive();
+    }
+
     public void Drive()
     {
         if(transform.position != destination)
         {
-            Vector3 direction = destination - transform.position;
+            Vector3 destinationDirection = destination - transform.position;
             destinationDirection.y = 0;
-            float destinationDirection = destinationDirection.magnitude;
+            float destinationDistance = destinationDirection.magnitude;
 
-            if(destinationDirection >= breakSpeed)
+            if(destinationDistance >= breakSpeed)
             {
                 destinationReached = false;
                 Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
@@ -39,7 +45,7 @@ public class AIController : MonoBehaviour
 
     public void LocateDestinations(Vector3 newDestination)
     {
-        destination = newDestination;
+        this.destination = newDestination;
         destinationReached = false;
     }
 
