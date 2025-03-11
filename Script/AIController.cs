@@ -6,8 +6,8 @@ public class AIController : MonoBehaviour
 {
     [Header("Car Engine")]
     public float movingSpeed;
-    public float turnSpeed;
-    public float breakSpeed;
+    public float turnSpeed = 50f;
+    public float breakSpeed = 12f;
 
     [Header("Destination Var")] 
     public Vector3 destination;
@@ -32,6 +32,7 @@ public class AIController : MonoBehaviour
                 destinationReached = false;
                 Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+                
 
                 transform.Translate(Vector3.forward * movingSpeed * Time.deltaTime);
             }
@@ -43,9 +44,9 @@ public class AIController : MonoBehaviour
 
     }
 
-    public void LocateDestinations(Vector3 newDestination)
+    public void LocateDestination(Vector3 destination)
     {
-        this.destination = newDestination;
+        this.destination = destination;
         destinationReached = false;
     }
 

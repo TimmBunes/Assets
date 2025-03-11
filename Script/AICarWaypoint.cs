@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AICarWaypoint : MonoBehaviour
 {
-   [Header("Component Car")]
+   [Header("Ai Car")]
    public AIController aiController;
    public Waypoint currentWaypoint;
 
@@ -15,7 +15,7 @@ public class AICarWaypoint : MonoBehaviour
 
    private void Start()
    {
-      aiController.LocateDestinations(currentWaypoint.GetPosition());
+      aiController.LocateDestination(currentWaypoint.GetPosition());
    }
 
    public void Update()
@@ -23,7 +23,7 @@ public class AICarWaypoint : MonoBehaviour
       if(aiController.destinationReached)
       {
          currentWaypoint = currentWaypoint.nextWaypoint;
-         aiController.LocateDestinations(currentWaypoint.GetPosition());
+         aiController.LocateDestination(currentWaypoint.GetPosition());
       }
    }
 }
