@@ -20,7 +20,7 @@ public class CarScript : MonoBehaviour
 
     [Header("Car Engine")]
     public float acceleration = 1000f; // Increased acceleration value
-    public float breakForce = 30000f;
+    public float breakForce = 60000f;
     public float presentBreakForce = 0f;
     public float presentAcceleration = 0f;
 
@@ -93,6 +93,7 @@ public class CarScript : MonoBehaviour
         if (isBraking || Input.GetKey(KeyCode.Space))
         {
             presentBreakForce = breakForce;
+            presentAcceleration = 0f;
         }
         else
         {
